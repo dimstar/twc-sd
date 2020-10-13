@@ -1,3 +1,9 @@
+# San Diego Tech Worker's Coalition
+
+Made with gatsby :)
+
+---
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.com">
