@@ -1,0 +1,18 @@
+{
+  "extends": ["airbnb", "plugin:prettier/recommended", "prettier/react"],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "rules": {
+    "no-console": "off",
+    "no-unused-vars": "warn",
+    "no-plusplus": "off",
+    "react/jsx-filename-extension": "off",
+    "react/prop-types": "off",
+    "react/jsx-curly-newline": "off",
+    "react/destructuring-assignment": "off",
+    "react/jsx-fragments": "off",
+    "react/jsx-one-expression-per-line": "off"
+  }
+}
