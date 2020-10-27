@@ -1,5 +1,10 @@
 import React from 'react';
+import Main from '../components/layouts';
 
 export default function Home() {
-  return <div>Hello world!</div>;
+  return (
+    <Main>
+      <div>Hello world!</div>
+    </Main>
+  );
 }
