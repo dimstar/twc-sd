@@ -1,10 +1,10 @@
 import React from 'react';
 
-import logo from '../assets/images/logo.svg';
+import logo from '../../assets/images/logo.svg';
 // import external from '../assets/images/external.svg';
-import ham from '../assets/images/ham.svg';
-import globe from '../assets/images/globe.svg';
-import local from '../assets/images/local.svg';
+import ham from '../../assets/images/ham.svg';
+import globe from '../../assets/images/globe.svg';
+import local from '../../assets/images/local.svg';
 
 const Header = () => {
   return (
