@@ -15,6 +15,10 @@ body {
   padding: 0;
 }
 
+label {
+  padding-bottom: 1rem;
+}
+
 .bg-black {
   background: $black;
   color: $white;
@@ -400,4 +404,5 @@ label {
   font-size: 0.8rem;
   color: #ff0000;
   max-width: 200px;
+  position: absolute;
 }
