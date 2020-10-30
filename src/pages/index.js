@@ -1,10 +1,14 @@
 import React from 'react';
-import Main from '../components/layouts';
+import JoinForm from '../components/JoinForm';
+import Main from '../components/Layout';
 
-export default function Home() {
+const Home = () => {
   return (
     <Main>
       <div>Hello world!</div>
+      <JoinForm />
     </Main>
   );
-}
+};
+
+export default Home;
