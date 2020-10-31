@@ -10,14 +10,19 @@ const JoinForm = () => {
   const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = useCallback(
-    async value => {
+    async values => {
       setSubmitting(true);
-      return new Promise(resolve =>
-        setTimeout(() => {
-          setSubmitting(false);
-          resolve(setFormData(value));
-        }, 500)
-      );
+      try {
+        const res = await fetch('.netlify/functions/handle', {
+          method: 'POST',
+          body: JSON.stringify(values)
+        });
+        setFormData({ values, response: res.message });
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setSubmitting(false);
+      }
     },
     [setFormData]
   );
@@ -30,7 +35,7 @@ const JoinForm = () => {
         social_media_1: '',
         social_media_2: '',
         company_name: '',
-        referrer: '',
+        referrer: ''
       }}
       onSubmit={handleSubmit}
       validationSchema={joinValidation}
