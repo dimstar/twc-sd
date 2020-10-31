@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useCallback } from 'react';
 import { Formik, Field, Form } from 'formik';
+// function code
 
 import joinValidation from '../../util/joinValidation';
 import Error from './Error';
@@ -17,7 +18,8 @@ const JoinForm = () => {
           method: 'POST',
           body: JSON.stringify(values)
         });
-        setFormData({ values, response: res.message });
+
+        setFormData({ values, response: res });
       } catch (err) {
         console.error(err);
       } finally {
@@ -35,7 +37,10 @@ const JoinForm = () => {
         social_media_1: '',
         social_media_2: '',
         company_name: '',
-        referrer: ''
+        referrer: '',
+        subscribeSlack: false,
+        team_id: 'T0M2JM76F',
+        redirect_uri: 'https://techworkerscoalition.org/slack-thanks'
       }}
       onSubmit={handleSubmit}
       validationSchema={joinValidation}
@@ -59,7 +64,6 @@ const JoinForm = () => {
               <Error field="name" touched={touched} errors={errors} />
             </label>
           </div>
-
           <div className="flex flex-wrap marg-b-2">
             <div className="marg-b-2">
               <b>Please provide two links to social media handles.</b>
@@ -91,7 +95,6 @@ const JoinForm = () => {
               <Error field="social_media_2" touched={touched} errors={errors} />
             </label>
           </div>
-
           <div className="flex flex-wrap marg-b-2">
             <label className="marg-b-4" htmlFor="email">
               <div>
@@ -107,7 +110,6 @@ const JoinForm = () => {
               <Error field="company_name" touched={touched} errors={errors} />
             </label>
           </div>
-
           <div className="flex flex-wrap marg-b-2">
             <label className="marg-b-4" htmlFor="email">
               <div>
@@ -125,11 +127,27 @@ const JoinForm = () => {
               <Error field="referrer" touched={touched} errors={errors} />
             </label>
           </div>
+          <div className="flex flex-wrap marg-b-2">
+            <label className="marg-b-4" htmlFor="subscribeSlack">
+              <div>
+                <Field
+                  id="subscribeSlack"
+                  name="subscribeSlack"
+                  type="checkbox"
+                  placeholder=""
+                />{' '}
+                <strong>Join the Slack</strong>
+              </div>
+              <Error field="referrer" touched={touched} errors={errors} />
+            </label>
+          </div>
 
           <div>
-            <button type="submit">Submit</button>
+            <button type="submit" disabled={submitting}>
+              Submit
+            </button>
             <br />
-            {submitting ? 'submitting' : JSON.stringify(formData)}
+            {submitting ? 'submitting...' : JSON.stringify(formData)}
           </div>
         </Form>
       )}
