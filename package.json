@@ -11,9 +11,11 @@
     "start": "yarn develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "netdev": "netlify dev",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "formik": "^2.2.1",
     "gatsby": "^2.24.67",
     "gatsby-plugin-react-helmet": "^3.3.14",
