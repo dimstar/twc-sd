@@ -2,6 +2,8 @@
 
 Made with gatsby :)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ddfd52cf-82d4-434d-a80c-49ce7fedf9a7/deploy-status)](https://app.netlify.com/sites/xenodochial-boyd-656d45/deploys)
+
 ---
 
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
