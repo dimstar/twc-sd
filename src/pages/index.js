@@ -25,6 +25,15 @@ const Home = () => {
       </p>
       <h3 className="marg-b-3">Please provide the following:</h3>
       <JoinForm />
+      <h1 id="dont-qualify-for-the-slack">Don’t qualify for the Slack?</h1>
+      <p>
+        If you’re a manager or someone not in tech, but you’re a supporter of
+        TWC, we recently setup a new ‘Managers &amp; Allies’ slack you may join{' '}
+        <a href="https://join.slack.com/t/techworkersco-4fm8079/shared_invite/zt-h3jau11x-PIPDe4OWaGdYNNzv0RQbhQ">
+          here
+        </a>
+        .
+      </p>
     </Main>
   );
 };
