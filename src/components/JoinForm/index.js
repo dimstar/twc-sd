@@ -13,7 +13,7 @@ const JoinForm = () => {
     async values => {
       setSubmitting(true);
       try {
-        const res = await fetch('.netlify/functions/handle', {
+        const res = await fetch('.netlify/functions/handleJoinForm', {
           method: 'POST',
           body: JSON.stringify(values)
         });
