@@ -1,11 +1,11 @@
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 const querystring = require('querystring');
 
-const authKey = JSON.parse(process.env.JOIN_SHEET_KEY);
+const authKey = JSON.parse(process.env.JOIN_SHEET_KEY || '');
 
 exports.handler = async (event, context, callback) => {
   try {
-    const doc = new GoogleSpreadsheet(process.env.JOIN_SHEET_ID);
+    const doc = new GoogleSpreadsheet(process.env.JOIN_SHEET_ID || '');
     await doc.useServiceAccountAuth(authKey, data => console.log(data));
     await doc.loadInfo();
     // get the first sheet
