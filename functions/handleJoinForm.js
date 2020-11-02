@@ -1,5 +1,6 @@
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 const querystring = require('querystring');
+const fetch = require('node-fetch');
 
 const authKey = JSON.parse(process.env.JOIN_SHEET_KEY || '');
 
@@ -16,7 +17,7 @@ exports.handler = async (event, context, callback) => {
     await sheet.addRow(data);
 
     // sends the data along to a slack signup for general TWC
-    await fetch(process.env.TWC_SIGNUP_URI, {
+    const res = await fetch(process.env.TWC_SIGNUP_URI, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
@@ -24,10 +25,18 @@ exports.handler = async (event, context, callback) => {
       body: querystring.encode(data)
     });
 
+    const resJson = await res.json();
+
+    if (res.status >= 300) {
+      console.error(resJson);
+      throw new Error(resJson.message);
+    }
+
     return {
       statusCode: 200,
       body: JSON.stringify({
-        message: `success`
+        message: `success`,
+        url: resJson.url || false
       })
     };
   } catch (e) {
