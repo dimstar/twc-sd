@@ -16,4 +16,5 @@ export default Yup.object().shape({
     .trim(),
   company_name: Yup.string().trim(),
   referrer: Yup.string().trim(),
+  subscribeSlack: Yup.bool()
 });

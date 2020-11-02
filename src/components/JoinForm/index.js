@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useCallback } from 'react';
 import { Formik, Field, Form } from 'formik';
-// function code
+import { isEmpty } from 'lodash';
 
 import joinValidation from '../../util/joinValidation';
 import Error from './Error';
@@ -48,7 +48,7 @@ const JoinForm = () => {
       {({ touched, errors }) => (
         <Form>
           <div className="flex flex-wrap marg-b-2">
-            <label className="marg-b-4" htmlFor="email">
+            <label className="marg-b-2" htmlFor="email">
               <div>
                 <strong>Email</strong>
               </div>
@@ -56,7 +56,7 @@ const JoinForm = () => {
               <Error field="email" touched={touched} errors={errors} />
             </label>
 
-            <label className="marg-b-4" htmlFor="name">
+            <label className="marg-b-2" htmlFor="name">
               <div>
                 <strong>Name</strong>
               </div>
@@ -77,7 +77,7 @@ const JoinForm = () => {
                 that you aren&apos;t a manager, journalist, etc is acceptable.
               </div>
             </div>
-            <label className="marg-b-4" htmlFor="email">
+            <label className="marg-b-2" htmlFor="email">
               <Field
                 id="social_media_1"
                 name="social_media_1"
@@ -86,7 +86,7 @@ const JoinForm = () => {
               <Error field="social_media_1" touched={touched} errors={errors} />
             </label>
 
-            <label className="marg-b-4" htmlFor="name">
+            <label className="marg-b-2" htmlFor="name">
               <Field
                 id="social_media_2"
                 name="social_media_2"
@@ -96,7 +96,7 @@ const JoinForm = () => {
             </label>
           </div>
           <div className="flex flex-wrap marg-b-2">
-            <label className="marg-b-4" htmlFor="email">
+            <label className="marg-b-2" htmlFor="email">
               <div>
                 <strong>Company Name (optional)</strong>
                 <br />
@@ -111,7 +111,7 @@ const JoinForm = () => {
             </label>
           </div>
           <div className="flex flex-wrap marg-b-2">
-            <label className="marg-b-4" htmlFor="email">
+            <label className="marg-b-2" htmlFor="email">
               <div>
                 <strong>How Did You Here About Us? (optional)</strong>
                 <br />
@@ -128,7 +128,7 @@ const JoinForm = () => {
             </label>
           </div>
           <div className="flex flex-wrap marg-b-2">
-            <label className="marg-b-4" htmlFor="subscribeSlack">
+            <label className="marg-b-2" htmlFor="subscribeSlack">
               <div>
                 <Field
                   id="subscribeSlack"
@@ -138,11 +138,16 @@ const JoinForm = () => {
                 />{' '}
                 <strong>Join the Slack</strong>
               </div>
-              <Error field="referrer" touched={touched} errors={errors} />
+              <Error field="subscribeSlack" touched={touched} errors={errors} />
             </label>
           </div>
 
           <div>
+            <div className="form-error">
+              {(isEmpty(touched) && isEmpty(errors)) || (
+                <span>Please fix the errors above</span>
+              )}
+            </div>
             <button type="submit" disabled={submitting}>
               Submit
             </button>
