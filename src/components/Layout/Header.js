@@ -24,7 +24,10 @@ const Header = () => {
           />
           <h1 className="title">
             <a href="/">
-              Tech <span className="black">Workers</span> Coalition
+              Tech <span className="black">Workers</span> Coalition{' '}
+              <span className="black" style={{ display: 'inline-block' }}>
+                San Diego
+              </span>
             </a>
           </h1>
         </div>
@@ -70,9 +73,7 @@ const Header = () => {
               role="navigation"
             >
               <li>
-                <a href="https://techworkerscoalition.org/subscribe">
-                  Join the Slack
-                </a>
+                <a href="https://techworkerscoalition.org/">TWC National</a>
               </li>
               <li>
                 <a href="https://techworkerscoalition.org/community-guide/">
