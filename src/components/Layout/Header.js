@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import logo from '../../assets/images/logo.svg';
 // import external from '../assets/images/external.svg';
 import ham from '../../assets/images/ham.svg';
-import globe from '../../assets/images/globe.svg';
+// import globe from '../../assets/images/globe.svg';
 import local from '../../assets/images/local.svg';
+import external from '../../assets/images/external.svg';
 
 const Header = () => {
+  const [showHam, setShowHam] = useState(true);
   return (
     <header className="header flex flex-row fixed w-full" role="banner">
       <div className="contain flex flex-row ai-ctr justify-between">
@@ -29,34 +31,6 @@ const Header = () => {
 
         <div className="flex flex-row ai-ctr">
           <div className="flex flex-row ai-ctr rel marg-r-2">
-            <button className="flex flex-row ai-ctr" id="langBtn" type="button">
-              <img
-                alt="Click to choose a language"
-                height="16"
-                className="marg-r-1"
-                src={globe}
-                width="16"
-              />
-              en
-            </button>
-            <ul id="langNav" className="navOverlay abs hide list-style-none">
-              {/* {% for lang in site.languages %}
-                <li>
-                  {% if site.lang == lang %}
-                    <div class="p-2 border-b-1">
-                      {% t langs.{{ lang }} %}
-                    </div>
-                  {% else %}
-                    <a href="{% tl {{ page.namespace }} {{ lang }} %}">
-                      {% t langs.{{ lang }} %}
-                    </a>
-                  {% endif %}
-                </li>
-              {% endfor %} */}
-            </ul>
-          </div>
-
-          <div className="flex flex-row ai-ctr rel marg-r-2">
             <button className="flex" id="chapterBtn" type="button">
               <img
                 alt="Click to render chapter navigation"
@@ -71,33 +45,16 @@ const Header = () => {
               className="navOverlay abs hide list-style-none"
             >
               <li className="p-2 border-b-1">Join a Chapter</li>
-              {/* {% for link in site.chapters %}
-                {% if link.newTab %}
-                  <li class="flex flex-row ai-ctr">
-                    <a
-                      rel="nofollow noopener noreferrer"
-                      target="_blank"
-                      href="{{ link.url }}">
-                      {{ link.text }} <img
-                        alt=""
-                        src="/assets/img/external.svg"
-                        height="14"
-                        width="14"
-                      />
-                    </a>
-                  </li>
-                  {% else %}
-                    <li>
-                      <a href="{{ link.url }}">{{ link.text }}</a>
-                    </li>
-                  {% endif %}
-                </li>
-              {% endfor %} */}
             </ul>
           </div>
 
           <div className="flex flex-row ai-ctr rel">
-            <button type="button" className="flex" id="navBtn">
+            <button
+              type="button"
+              className="flex"
+              id="navBtn"
+              onClick={() => setShowHam(prevState => !prevState)}
+            >
               <img
                 alt="Click to render sub-page navigation"
                 height="20"
@@ -107,31 +64,73 @@ const Header = () => {
             </button>
             <ul
               id="nav"
-              className="navOverlay abs hide list-style-none"
+              className={`navOverlay abs list-style-none ${
+                showHam ? 'hide' : ''
+              }`}
               role="navigation"
             >
-              {/* {% for link in site.links %}
-                {% if link.newTab %}
-                  <li class="flex flex-row ai-ctr">
-                    <a
-                      rel="nofollow noopener noreferrer"
-                      target="_blank"
-                      href="{{ link.url }}">
-                      {{ link.text }} <img
-                        alt=""
-                        src="/assets/img/external.svg"
-                        height="14"
-                        width="14"
-                      />
-                    </a>
-                  </li>
-                  {% else %}
-                    <li>
-                      <a href="{{ link.url }}">{{ link.text }}</a>
-                    </li>
-                  {% endif %}
-                </li>
-              {% endfor %} */}
+              <li>
+                <a href="https://techworkerscoalition.org/subscribe">
+                  Join the Slack
+                </a>
+              </li>
+              <li>
+                <a href="https://techworkerscoalition.org/community-guide/">
+                  Community Guide
+                </a>
+              </li>
+              <li>
+                <a href="https://news.techworkerscoalition.org/subscribe/">
+                  Newsletter
+                </a>
+              </li>
+              <li className="flex flex-row ai-ctr">
+                <a
+                  rel="nofollow noopener noreferrer"
+                  target="_blank"
+                  href="https://sites.google.com/view/tech-workers-coalition/learning-club"
+                >
+                  Learning Clubs{' '}
+                  <img alt="" src={external} width="14" height="14" />
+                </a>
+              </li>
+              <li className="flex flex-row ai-ctr">
+                <a
+                  rel="nofollow noopener noreferrer"
+                  target="_blank"
+                  href="https://medium.com/tech-workers-coalition"
+                >
+                  Medium <img alt="" src={external} width="14" height="14" />
+                </a>
+              </li>
+              <li className="flex flex-row ai-ctr">
+                <a
+                  rel="nofollow noopener noreferrer"
+                  target="_blank"
+                  href="https://twitter.com/techworkersco"
+                >
+                  Twitter <img alt="" src={external} width="14" height="14" />
+                </a>
+              </li>
+              <li className="flex flex-row ai-ctr">
+                <a
+                  rel="nofollow noopener noreferrer"
+                  target="_blank"
+                  href="https://www.facebook.com/TechWorkersCoalition"
+                >
+                  Facebook <img alt="" src={external} width="14" height="14" />
+                </a>
+              </li>
+              <li className="flex flex-row ai-ctr">
+                <a
+                  rel="nofollow noopener noreferrer"
+                  target="_blank"
+                  href="https://collectiveaction.tech/"
+                >
+                  CollectiveActions.Tech{' '}
+                  <img alt="" src={external} width="14" height="14" />
+                </a>
+              </li>
             </ul>
           </div>
         </div>
