@@ -1,34 +1,38 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import { Formik, Field, Form } from 'formik';
 import { isEmpty } from 'lodash';
+import { navigate } from 'gatsby';
 
 import joinValidation from '../../util/joinValidation';
 import Error from './Error';
 
+const handleSubmit = async (values, { resetForm, setSubmitting }) => {
+  setSubmitting(true);
+  try {
+    const res = await fetch('.netlify/functions/handleJoinForm', {
+      method: 'POST',
+      body: JSON.stringify(values)
+    });
+
+    const resJson = await res.json();
+    if (res.status >= 300) {
+      console.error(resJson);
+      throw new Error(resJson);
+    }
+
+    resetForm();
+    if (resJson.url) {
+      navigate(resJson.url);
+    }
+  } catch (err) {
+    console.error(err);
+  } finally {
+    setSubmitting(false);
+  }
+};
+
 const JoinForm = () => {
-  const [formData, setFormData] = useState({});
-  const [submitting, setSubmitting] = useState(false);
-
-  const handleSubmit = useCallback(
-    async values => {
-      setSubmitting(true);
-      try {
-        const res = await fetch('.netlify/functions/handleJoinForm', {
-          method: 'POST',
-          body: JSON.stringify(values)
-        });
-
-        setFormData({ values, response: res });
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setSubmitting(false);
-      }
-    },
-    [setFormData]
-  );
-
   return (
     <Formik
       initialValues={{
@@ -45,8 +49,8 @@ const JoinForm = () => {
       onSubmit={handleSubmit}
       validationSchema={joinValidation}
     >
-      {({ touched, errors }) => (
-        <Form>
+      {({ touched, errors, isSubmitting }) => (
+        <Form className="marg-b-4">
           <div className="flex flex-wrap marg-b-2">
             <label className="marg-b-2" htmlFor="email">
               <div>
@@ -144,15 +148,15 @@ const JoinForm = () => {
 
           <div>
             <div className="form-error">
-              {(isEmpty(touched) && isEmpty(errors)) || (
+              {isEmpty(touched) || isEmpty(errors) || (
                 <span>Please fix the errors above</span>
               )}
             </div>
-            <button type="submit" disabled={submitting}>
-              Submit
+            <button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? 'Submitting...' : 'Submit'}
             </button>
             <br />
-            {submitting ? 'submitting...' : JSON.stringify(formData)}
+            {/* isSubmitting ? 'submitting...' : JSON.stringify(formData) */}
           </div>
         </Form>
       )}
