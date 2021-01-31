@@ -15,12 +15,12 @@ export default ({ children }) => {
         meta={[
           {
             name: 'description',
-            content: 'Welcome to the TWC San Diego Chapter.',
+            content: 'Welcome to the TWC San Diego Chapter.'
           },
           {
             name: 'keywords',
-            content: "Tech Worker's Coalition, Tech, Worker Solidarity",
-          },
+            content: "Tech Worker's Coalition, Tech, Worker Solidarity"
+          }
         ]}
       />
       <Header />
