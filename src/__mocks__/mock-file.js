@@ -8,7 +8,7 @@ module.exports = {
 
 /**
  * example assertion with the above mock
- * 
+ *
  * expect(imgElementYouMayFind.props.src)
  *.toEqual('moon.svg')
- */ 
+ */

@@ -9,10 +9,12 @@
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "concurrently \"yarn develop\" \"yarn netdev\"",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "netdev": "netlify dev",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "jest src/"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
@@ -47,8 +49,7 @@
     "eslint-plugin-react-hooks": "4.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
-    "prettier": "^2.1.2",
-    "react-test-renderer": "^17.0.1"
+    "prettier": "^2.1.2"
   },
   "repository": {
     "type": "git",
