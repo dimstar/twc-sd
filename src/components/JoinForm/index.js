@@ -4,7 +4,7 @@ import { Formik, Field, Form } from 'formik';
 import { isEmpty } from 'lodash';
 import { navigate } from 'gatsby';
 
-import joinValidation from '../../util/joinValidation';
+import { joinValidation } from '../../util/validation';
 import Error from './Error';
 
 const handleSubmit = async (values, { resetForm, setSubmitting }) => {

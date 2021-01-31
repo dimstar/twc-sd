@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 
-export default Yup.object().shape({
+export const joinValidation = Yup.object().shape({
   email: Yup.string()
     .email()
     .required('Please provide a valid email address.')
@@ -18,3 +18,5 @@ export default Yup.object().shape({
   referrer: Yup.string().trim(),
   subscribeSlack: Yup.bool()
 });
+
+export default { joinValidation };
