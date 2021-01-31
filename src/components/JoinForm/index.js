@@ -117,7 +117,7 @@ const JoinForm = () => {
           <div className="flex flex-wrap marg-b-2">
             <label className="marg-b-2" htmlFor="email">
               <div>
-                <strong>How Did You Here About Us? (optional)</strong>
+                <strong>How Did You Hear About Us? (optional)</strong>
                 <br />
                 <div>
                   Including a referrer from an existing member can be a good way
