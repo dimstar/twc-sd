@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "twc-sandiego",
   "private": true,
   "description": "A simplified bare-bones starter for Gatsby",
   "version": "0.1.0",
@@ -8,7 +8,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "yarn develop",
+    "start": "concurrently \"yarn develop\" \"yarn netdev\"",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "netdev": "netlify dev",
@@ -30,6 +30,12 @@
     "yup": "^0.29.3"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.5",
+    "@testing-library/react": "^11.1.1",
+    "@testing-library/user-event": "^12.6.2",
+    "babel-jest": "^26.6.3",
+    "babel-preset-gatsby": "^0.11.0",
+    "concurrently": "^5.3.0",
     "eslint": "7.2.0",
     "eslint-config-airbnb": "18.2.0",
     "eslint-config-airbnb-base": "^14.2.0",
@@ -39,7 +45,10 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "4.0.0",
-    "prettier": "^2.1.2"
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.6.3",
+    "prettier": "^2.1.2",
+    "react-test-renderer": "^17.0.1"
   },
   "repository": {
     "type": "git",
@@ -47,5 +56,8 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "jest": {
+    "verbose": true
   }
 }
