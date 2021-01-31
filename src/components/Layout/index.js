@@ -4,8 +4,8 @@ import { Helmet } from 'react-helmet';
 import Header from './Header';
 import Footer from './Footer';
 
-import '../../assets/css/normalize.css';
-import '../../assets/css/main.scss';
+// import '../../assets/css/normalize.css';
+// import '../../assets/css/main.scss';
 
 export default ({ children }) => {
   return (
