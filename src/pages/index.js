@@ -23,7 +23,7 @@ const Home = () => {
         Sometimes this can take a couple days. Vetting is done by volunteers,
         please be patient with us!
       </p>
-      <h3 className="marg-b-3">Please provide the following:</h3>
+      <h3>Please provide the following:</h3>
       <JoinForm />
       <h1 id="dont-qualify-for-the-slack">Don’t qualify for the Slack?</h1>
       <p>

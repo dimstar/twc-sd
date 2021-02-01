@@ -50,9 +50,9 @@ const JoinForm = () => {
       validationSchema={joinValidation}
     >
       {({ touched, errors, isSubmitting }) => (
-        <Form className="marg-b-4">
-          <div className="flex flex-wrap marg-b-2">
-            <label className="marg-b-2" htmlFor="email">
+        <Form>
+          <div>
+            <label htmlFor="email">
               <div>
                 <strong>Email</strong>
               </div>
@@ -60,7 +60,7 @@ const JoinForm = () => {
               <Error field="email" touched={touched} errors={errors} />
             </label>
 
-            <label className="marg-b-2" htmlFor="name">
+            <label>
               <div>
                 <strong>Name</strong>
               </div>
@@ -68,8 +68,8 @@ const JoinForm = () => {
               <Error field="name" touched={touched} errors={errors} />
             </label>
           </div>
-          <div className="flex flex-wrap marg-b-2">
-            <div className="marg-b-2">
+          <div>
+            <div>
               <b>Please provide two links to social media handles.</b>
               <div>
                 We need a way to validate that you meet the membership
@@ -81,7 +81,7 @@ const JoinForm = () => {
                 that you aren&apos;t a manager, journalist, etc is acceptable.
               </div>
             </div>
-            <label className="marg-b-2" htmlFor="email">
+            <label>
               <Field
                 id="social_media_1"
                 name="social_media_1"
@@ -90,7 +90,7 @@ const JoinForm = () => {
               <Error field="social_media_1" touched={touched} errors={errors} />
             </label>
 
-            <label className="marg-b-2" htmlFor="name">
+            <label>
               <Field
                 id="social_media_2"
                 name="social_media_2"
@@ -99,8 +99,8 @@ const JoinForm = () => {
               <Error field="social_media_2" touched={touched} errors={errors} />
             </label>
           </div>
-          <div className="flex flex-wrap marg-b-2">
-            <label className="marg-b-2" htmlFor="email">
+          <div>
+            <label>
               <div>
                 <strong>Company Name (optional)</strong>
                 <br />
@@ -114,8 +114,8 @@ const JoinForm = () => {
               <Error field="company_name" touched={touched} errors={errors} />
             </label>
           </div>
-          <div className="flex flex-wrap marg-b-2">
-            <label className="marg-b-2" htmlFor="email">
+          <div>
+            <label>
               <div>
                 <strong>How Did You Hear About Us? (optional)</strong>
                 <br />
@@ -131,8 +131,8 @@ const JoinForm = () => {
               <Error field="referrer" touched={touched} errors={errors} />
             </label>
           </div>
-          <div className="flex flex-wrap marg-b-2">
-            <label className="marg-b-2" htmlFor="subscribeSlack">
+          <div>
+            <label>
               <div>
                 <Field
                   id="subscribeSlack"
@@ -147,7 +147,7 @@ const JoinForm = () => {
           </div>
 
           <div>
-            <div className="form-error">
+            <div>
               {isEmpty(touched) || isEmpty(errors) || (
                 <span>Please fix the errors above</span>
               )}
