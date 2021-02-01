@@ -12,9 +12,10 @@ exports.handler = async (event, context, callback) => {
     // get the first sheet
     const sheet = doc.sheetsByIndex[0];
     // parses the request body into json
-    const data = JSON.parse(event.body);
+    // eslint-disable-next-line camelcase
+    const { newsletter_signup, ...data } = JSON.parse(event.body);
     // add the row to the sheet
-    await sheet.addRow(data);
+    await sheet.addRow({ newsletter_signup, ...data });
 
     // sends the data along to a slack signup for general TWC
     const res = await fetch(process.env.TWC_SIGNUP_URI, {

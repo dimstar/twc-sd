@@ -44,7 +44,8 @@ const JoinForm = () => {
         referrer: '',
         subscribeSlack: false,
         team_id: 'T0M2JM76F',
-        redirect_uri: 'https://techworkerscoalition.org/slack-thanks'
+        redirect_uri: 'https://techworkerscoalition.org/slack-thanks',
+        newsletter_signup: true
       }}
       onSubmit={handleSubmit}
       validationSchema={joinValidation}
@@ -143,6 +144,24 @@ const JoinForm = () => {
                 <strong>Join the Slack</strong>
               </div>
               <Error field="subscribeSlack" touched={touched} errors={errors} />
+            </label>
+          </div>
+          <div className="flex flex-wrap marg-b-2">
+            <label className="marg-b-2" htmlFor="subscribeSlack">
+              <div>
+                <Field
+                  id="newsletter_signup"
+                  name="newsletter_signup"
+                  type="checkbox"
+                  placeholder=""
+                />{' '}
+                <strong>Newsletter Signup</strong>
+              </div>
+              <Error
+                field="newsletter_signup"
+                touched={touched}
+                errors={errors}
+              />
             </label>
           </div>
 
