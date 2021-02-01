@@ -8,8 +8,10 @@ const Home = () => {
       <h1 id="join-us">Join us</h1>
       <p>
         Our Slack is governed by the principles and rules in our{' '}
-        <a href="/community-guide">Community Guide</a>. By joining, you agree to
-        follow them.{' '}
+        <a href="https://techworkerscoalition.org/community-guide">
+          Community Guide
+        </a>
+        . By joining, you agree to follow them.{' '}
         <a href="https://news.techworkerscoalition.org">Our newsletter</a>{' '}
         includes news, announcements, and updates from the Tech Workers
         Coalition. You can{' '}
