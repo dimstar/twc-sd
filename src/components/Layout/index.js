@@ -24,7 +24,7 @@ export default ({ children }) => {
         ]}
       />
       <Header />
-      <main className="contain">
+      <main className="container mx-auto">
         {/* <!-- <section> --> */}
         {children}
         {/* <!-- </section> --> */}
