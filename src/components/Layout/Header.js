@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 
 import logo from '../../assets/images/logo.svg';
-// import external from '../assets/images/external.svg';
 import ham from '../../assets/images/ham.svg';
-// import globe from '../../assets/images/globe.svg';
+import globe from '../../assets/images/globe.svg';
 import local from '../../assets/images/local.svg';
 import external from '../../assets/images/external.svg';
 
@@ -33,24 +32,6 @@ const Header = () => {
         </div>
 
         <div className="flex flex-row ai-ctr">
-          <div className="flex flex-row ai-ctr rel marg-r-2">
-            <button className="flex" id="chapterBtn" type="button">
-              <img
-                alt="Click to render chapter navigation"
-                height="18"
-                src={local}
-                width="13"
-              />
-            </button>
-            <ul
-              id="chapterNav"
-              role="navigation"
-              className="navOverlay abs hide list-style-none"
-            >
-              <li className="p-2 border-b-1">Join a Chapter</li>
-            </ul>
-          </div>
-
           <div className="flex flex-row ai-ctr rel">
             <button
               type="button"
@@ -73,7 +54,12 @@ const Header = () => {
               role="navigation"
             >
               <li>
-                <a href="https://techworkerscoalition.org/">TWC National</a>
+                <a href="https://techworkerscoalition.org/">TWC</a>
+              </li>
+              <li>
+                <a href="https://techworkerscoalition.org/chapters/">
+                  Join a Chapter
+                </a>
               </li>
               <li>
                 <a href="https://techworkerscoalition.org/community-guide/">
