@@ -26,7 +26,12 @@ exports.handler = async (event, context, callback) => {
       body: querystring.encode(data)
     });
 
+    // debugging
+    console.log('res: ', res);
+
     const resJson = await res.json();
+
+    console.log('resJson: ', resJson);
 
     if (res.status >= 300) {
       console.error(resJson);
