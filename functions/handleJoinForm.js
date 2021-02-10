@@ -29,7 +29,9 @@ exports.handler = async (event, context, callback) => {
     // debugging
     console.log('res: ', res);
 
-    const resJson = await res.json();
+    const resText = await res.text();
+    
+    const resJson = JSON.parse(resText);
 
     console.log('resJson: ', resJson);
 
