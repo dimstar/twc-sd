@@ -26,25 +26,19 @@ exports.handler = async (event, context, callback) => {
       body: querystring.encode(data)
     });
 
-    // debugging
-    console.log('res: ', res);
-
     const resText = await res.text();
-    
-    const resJson = JSON.parse(resText);
 
-    console.log('resJson: ', resJson);
+    // debugging
+    console.log('res: ', resText);
 
     if (res.status >= 300) {
-      console.error(resJson);
-      throw new Error(resJson.message);
+      throw new Error(resText);
     }
 
     return {
       statusCode: 200,
       body: JSON.stringify({
-        message: `success`,
-        url: resJson.url || false
+        message: `success`
       })
     };
   } catch (e) {
