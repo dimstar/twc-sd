@@ -7,32 +7,35 @@ import { navigate } from 'gatsby';
 import { joinValidation } from '../../util/validation';
 import Error from './Error';
 
-const handleSubmit = async (values, { resetForm, setSubmitting }) => {
-  setSubmitting(true);
-  try {
-    const res = await fetch('.netlify/functions/handleJoinForm', {
-      method: 'POST',
-      body: JSON.stringify(values)
-    });
-
-    const resJson = await res.json();
-    if (res.status >= 300) {
-      console.error(resJson);
-      throw new Error(resJson);
-    }
-
-    resetForm();
-    if (resJson.url) {
-      navigate(resJson.url);
-    }
-  } catch (err) {
-    console.error(err);
-  } finally {
-    setSubmitting(false);
-  }
-};
-
 const JoinForm = () => {
+  const [submitMessage, setSubmitMessage] = React.useState('');
+
+  const handleSubmit = React.useCallback(
+    async (values, { resetForm, setSubmitting }) => {
+      setSubmitting(true);
+      try {
+        const res = await fetch('.netlify/functions/handleJoinForm', {
+          method: 'POST',
+          body: JSON.stringify(values)
+        });
+
+        if (res.status >= 300) {
+          console.error(res);
+          setSubmitMessage('Sorry, something went wrong with your submission.');
+        }
+
+        // everything is ok
+        resetForm();
+        navigate('/thank-you');
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setSubmitting(false);
+      }
+    },
+    [setSubmitMessage]
+  );
+
   return (
     <Formik
       initialValues={{
@@ -174,6 +177,7 @@ const JoinForm = () => {
             <button type="submit" disabled={isSubmitting}>
               {isSubmitting ? 'Submitting...' : 'Submit'}
             </button>
+            {!submitMessage || <div className="form-error">{submit}</div>}
             <br />
             {/* isSubmitting ? 'submitting...' : JSON.stringify(formData) */}
           </div>
