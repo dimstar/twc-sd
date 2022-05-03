@@ -13,9 +13,9 @@ exports.handler = async event => {
     // eslint-disable-next-line camelcase
     const { newsletter_signup, ...data } = JSON.parse(event.body);
     // add the row to the sheet
-    const newRow = await sheet.addRow({ newsletter_signup, ...data });
+    const row = await sheet.addRow({ newsletter_signup, ...data });
     // save the row
-    newRow.save();
+    await row.save();
 
     return {
       statusCode: 200,
