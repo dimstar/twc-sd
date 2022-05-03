@@ -139,20 +139,6 @@ const JoinForm = () => {
             <label className="marg-b-2" htmlFor="subscribeSlack">
               <div>
                 <Field
-                  id="subscribeSlack"
-                  name="subscribeSlack"
-                  type="checkbox"
-                  placeholder=""
-                />{' '}
-                <strong>Join the Slack</strong>
-              </div>
-              <Error field="subscribeSlack" touched={touched} errors={errors} />
-            </label>
-          </div>
-          <div className="flex flex-wrap marg-b-2">
-            <label className="marg-b-2" htmlFor="subscribeSlack">
-              <div>
-                <Field
                   id="newsletter_signup"
                   name="newsletter_signup"
                   type="checkbox"
